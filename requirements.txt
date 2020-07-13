@@ -1,1 +1,5 @@
 requests
+gunicorn
+django-heroku
+psycopg2
+Django
