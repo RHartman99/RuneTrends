@@ -1,0 +1,17 @@
+{% load static %}
+{% load fontawesome_5 %}
+{% fontawesome_5_static %}
+<nav class="navbar">
+    <a href="{% url 'index' %}">
+        <img class="navbar__logo" src="{% static 'images/RuneTrends_Light.png' %}"/>
+    </a>
+    <ol>
+        <li>
+            {% url 'index' as link %}
+            <a href="{% url 'index' %}" class="navbar__link {% ifequal link request.path %}active{% endifequal %}">
+                {% fa5_icon 'home' 'fas' %}
+                Home
+            </a>
+        </li>
+    </ol>
+</nav>

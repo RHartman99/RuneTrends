@@ -1,0 +1,29 @@
+{% load static %}
+{% load fontawesome_5 %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+{% include "global/navbar.html" %}
+<main>
+  <div class="items">
+    <h2>{% fa5_icon 'list-alt' 'far' %}Items</h2>
+    <ul class="items__list">
+      {% for item in items %}
+        <li class="items__list--item">
+          <h3>{{ item.name }}</h3>
+          <img src="{{ item.icon_large }}"/>
+          <ul>
+            <li><span>ID:</span> {{item.item_id}}</li>
+            <li><span>Price:</span> {{item.price}}</li>
+            <li><span>Description:</span> {{ item.description }}</li>
+            <li class="members">
+            {% if item.members %}
+              Members Only
+            {% else %}
+              Free To Play
+            {% endif %}
+            </li>
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
