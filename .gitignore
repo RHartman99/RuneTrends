@@ -1,3 +1,5 @@
 __pycache__
 response.json
 items.json
+node_modules
+db.sqlite3

@@ -1,0 +1,30 @@
+.navbar {
+  @apply flex flex-col bg-bg-blue justify-start items-center h-screen fixed left-0 top-0 font-mont;
+  width: 200px;
+
+  &__logo {
+    width: 200px;
+  }
+
+  ol,
+  li,
+  &__link {
+    @apply flex w-full;
+  }
+
+  ol {
+    @apply p-0;
+  }
+
+  &__link {
+    @apply justify-center items-center py-4 text-white no-underline;
+
+    i {
+      @apply mr-2;
+    }
+
+    &.active {
+      @apply bg-blue-active;
+    }
+  }
+}

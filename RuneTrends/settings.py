@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "djangomix",
     "GrandExchange.apps.GrandexchangeConfig",
     "fontawesome_5",
     "django.contrib.admin",

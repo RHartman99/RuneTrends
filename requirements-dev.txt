@@ -1,0 +1,4 @@
+requests
+Django
+django-fontawesome-5
+djangomix

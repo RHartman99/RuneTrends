@@ -1,0 +1,42 @@
+.items {
+  @apply flex flex-wrap text-white font-mont bg-bg-blue;
+
+  h2 {
+    @apply bg-blue-bright flex items-center uppercase p-4 w-full text-xl relative;
+
+    i {
+      @apply mr-2 font-normal;
+    }
+
+    &:after {
+      @apply bg-blue-bright flex absolute;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      content: "";
+      left: 1.5rem;
+      bottom: -10px;
+    }
+  }
+
+  &__list {
+    @apply list-none flex w-full p-8 flex-wrap;
+
+    &--item {
+      @apply flex flex-wrap justify-center items-center w-1/4 mb-4;
+
+      h3 {
+        @apply m-0 w-full;
+      }
+
+      img {
+        @apply mr-4;
+        width: calc(25% - 1rem);
+      }
+
+      ul {
+        @apply m-0 p-0 w-3/4;
+      }
+    }
+  }
+}
