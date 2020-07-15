@@ -8,22 +8,26 @@
     <h2>{% fa5_icon 'list-alt' 'far' %}Items</h2>
     <ul class="items__list">
       {% for item in items %}
-        <li class="items__list--item">
-          <h3>{{ item.name }}</h3>
-          <img src="{{ item.icon_large }}"/>
-          <ul>
-            <li><span>ID:</span> {{item.item_id}}</li>
-            <li><span>Price:</span> {{item.price}}</li>
-            <li><span>Description:</span> {{ item.description }}</li>
-            <li class="members">
-            {% if item.members %}
-              Members Only
-            {% else %}
-              Free To Play
-            {% endif %}
-            </li>
-          </ul>
-        </li>
+        <div class="items__list--wrapper">
+          <li class="items__list--item">
+            <h3>{{ item.name }}</h3>
+            <img src="{{ item.icon_large }}" alt="Item icon" class="items__list--item-icon" />
+            <ul>
+              <li><span>ID:</span> {{item.item_id}}</li>
+              <li><span>Price:</span> {{item.price}}</li>
+              <li><span>Description:</span> {{ item.description }}</li>
+              <li class="members">
+              {% if item.members %}
+                <img class="icon" src="{% static 'images/member_icon.png' %}" alt="Members only" />
+                Members Only
+              {% else %}
+                <img class="icon" src="{% static 'images/f2p_icon.png' %}" alt="Free to play" />
+                Free To Play
+              {% endif %}
+              </li>
+            </ul>
+          </li>
+        </div>
       {% endfor %}
     </ul>
   </div>

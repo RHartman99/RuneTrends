@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/RHartman99/RuneTrends#readme",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.0.1",
     "cross-env": "^7.0.2",
     "laravel-mix": "^5.0.4",
     "postcss-sass": "^0.4.4",

@@ -27,3 +27,8 @@ ALPHABET = [
     "y",
     "z",
 ]
+
+URLS = {
+    "GE": "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/",
+    "OSBOX": "https://api.osrsbox.com/",
+}
