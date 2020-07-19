@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% load fontawesome_5 %}
+
+{% block content %}
+	{% include 'partials/hero.html' with page_title="Items" icon=item.icon_large subtitle=item.name %}
+	<section class="container info">
+		<h2 class="container__header">
+			<span class="icon">{% fa5_icon 'info-circle' 'fas' %}</span>Information</h2>
+		<div class="info__icon">
+			<div class="info__icon--wrapper">
+				<img data-src="{{ item.icon_large }}" class="lazy" alt="{{item.name}} icon"/>
+			</div>
+			<p>{{ item.name }}</p>
+		</div>
+		{% include 'partials/item-info.html' with item=item %}
+	</section>
+{% endblock content %}

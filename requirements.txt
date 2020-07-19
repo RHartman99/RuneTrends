@@ -1,7 +1,10 @@
 requests
+Django
+django-fontawesome-5
+djangomix
+django-dotenv
+
+# Production only:
 gunicorn
 django-heroku
 psycopg2
-Django
-djangomix
-django-fontawesome-5

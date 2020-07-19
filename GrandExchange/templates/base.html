@@ -1,0 +1,20 @@
+{% load static %}
+{% load filters %}
+{% load fontawesome_5 %}
+{% fontawesome_5_static %}
+{% load mix %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RuneTrends</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'app.css' %}">
+		<link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon.ico' %}"/>
+	</head>
+
+	<body>
+		{% include "global/navbar.html" %}
+		<main data-controller="global"> {% block content %}{% endblock content %}
+			</main>
+		</body>
+		<script type="text/javascript" src="{% static 'scripts/grandexchange.js' %}"></script>
+	</html>

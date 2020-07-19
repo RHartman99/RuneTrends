@@ -1,6 +1,6 @@
 {
-  "editor.tabSize": 4,
   "files.associations": {
-    "*.html": "django-html"
-  }
+    "*.html": "twig"
+  },
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 }

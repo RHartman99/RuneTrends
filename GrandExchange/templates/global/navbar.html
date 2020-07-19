@@ -1,17 +1,27 @@
 {% load static %}
 {% load fontawesome_5 %}
 {% fontawesome_5_static %}
-<nav class="navbar">
-    <a href="{% url 'index' %}">
-        <img class="navbar__logo" src="{% static 'images/RuneTrends_Light.png' %}"/>
-    </a>
-    <ol>
-        <li>
-            {% url 'index' as link %}
-            <a href="{% url 'index' %}" class="navbar__link {% ifequal link request.path %}active{% endifequal %}">
-                {% fa5_icon 'home' 'fas' %}
-                Home
-            </a>
-        </li>
-    </ol>
+<nav class="navbar" data-controller="nav">
+	<a href="{% url 'index' %}">
+		<img class="navbar__logo" src="{% static 'images/RuneTrends_Light.png' %}" alt="RuneTrends logo"/>
+	</a>
+	<ol>
+		<li>
+			{% url 'index' as link %}
+			<a href="{% url 'index' %}" class="navbar__link {% ifequal link request.path %}active{% endifequal %}">
+				{% fa5_icon 'home' 'fas' %}
+				<p class="navbar__link--text">Home</p>
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'index' %}" class="navbar__link {% ifequal link request.path %}active{% endifequal %}">
+				{% fa5_icon 'book' 'fas' %}
+				<p class="navbar__link--text">Items</p>
+			</a>
+		</li>
+	</ol>
+	<button class="navbar__collapse" data-action="click->nav#toggleCollapse">
+		<div class="open">{% fa5_icon 'compress-arrows-alt' 'fas' %}</div>
+		<div class="close">{% fa5_icon 'expand-arrows-alt' 'fas' %}</div>
+	</button>
 </nav>

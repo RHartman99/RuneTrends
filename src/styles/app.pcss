@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700&display=swap");
+@import "./partials/navbar.pcss";
+@import "./partials/index.pcss";
+@import "./partials/item.pcss";
+@import "./partials/hero.pcss";
+
+body {
+  @apply flex justify-start items-start p-0 m-0 bg-eggshell;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+  @apply m-0 p-0;
+}
+
+main {
+  @apply w-full flex flex-col justify-start items-start p-8;
+  margin-left: 200px;
+  transition: 0.4s ease-in-out;
+  h2 {
+    @apply font-mont font-bold;
+    font-size: 1.5rem;
+  }
+
+  &.large {
+    margin-left: 50px;
+  }
+}

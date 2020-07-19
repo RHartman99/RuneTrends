@@ -1,0 +1,53 @@
+.hero {
+  @apply relative flex justify-center items-center w-full -mx-8 -mt-8;
+  width: calc(100% + 4rem);
+
+  &__bg {
+    @apply absolute w-full h-full;
+    z-index: -1;
+    filter: brightness(60%);
+    object-fit: cover;
+    object-postion: top center;
+  }
+
+  &__content {
+    @apply flex items-center justify-center flex-col text-white font-mont;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 90%;
+    height: 80%;
+
+    p,
+    h1 {
+      @apply m-0;
+    }
+
+    p {
+      @apply text-6xl uppercase font-bold px-4 py-2;
+    }
+
+    h1 {
+      @apply relative;
+      &:after {
+        @apply absolute bg-blue-active;
+        height: 10px;
+        bottom: 0rem;
+        width: 90%;
+        z-index: -1;
+        right: -10%;
+        content: "";
+      }
+
+      .icon {
+        @apply absolute;
+        top: -100%;
+        left: -2rem;
+        right: 4rem;
+        z-index: -1;
+        filter: contrast(0);
+        opacity: 0.4;
+      }
+    }
+  }
+
+  height: 250px;
+}

@@ -1,0 +1,92 @@
+.container {
+  @apply my-12 font-mont flex justify-start flex-col items-start bg-gray-200;
+  &__header {
+    @apply text-white flex justify-start items-center uppercase px-4 py-2 w-full relative bg-gray-800 text-xl;
+    z-index: 1;
+    .icon {
+      @apply font-normal text-lg mr-2;
+    }
+
+    &:after {
+      @apply absolute bg-gray-800;
+      left: 2rem;
+      bottom: -10px;
+      transform: rotate(45deg);
+      content: "";
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.info {
+  @apply items-start justify-start flex-row flex-wrap;
+  &__icon {
+    @apply flex flex-col justify-start items-center p-8 text-xl text-center;
+
+    &--wrapper {
+      border: 3px solid transparent;
+      @apply relative border-bg-blue shadow-lg;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    img,
+    .placeholder {
+      z-index: 3;
+      @apply p-4 relative shadow-lg;
+      width: 80px;
+    }
+
+    &--wrapper:before {
+      @apply absolute h-full w-full;
+      z-index: 2;
+      left: -2.5%;
+      top: -2.5%;
+      width: 105%;
+      height: 105%;
+      border-radius: 50%;
+      filter: blur(2px) brightness(160%) contrast(110%);
+      content: "";
+      background-image: url("images/grand_exchange.jpg");
+    }
+
+    .placeholder {
+      @apply flex items-center justify-center text-6xl;
+      height: 80px;
+    }
+
+    p {
+      @apply mt-4 relative;
+      &:after {
+        @apply absolute bg-blue-active;
+        width: 40%;
+        bottom: -8px;
+        left: 0;
+        height: 3px;
+        content: "";
+      }
+    }
+  }
+
+  &__info {
+    overflow: hidden;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    @apply list-none p-0 m-0 flex-1 border-gray-400;
+
+    li {
+      @apply flex justify-start items-center w-full p-2 bg-gray-200;
+      white-space: wrap;
+      &:nth-child(even) {
+        @apply bg-gray-300;
+      }
+
+      strong {
+        @apply text-blue-bright;
+        width: 30px;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from .constants import ALPHABET, URLS
 import requests
 import json
@@ -6,6 +7,8 @@ import math
 import time
 import sys
 import datetime
+import os
+from progress.bar import ChargingBar
 
 
 def null_sentinel(obj, sentinel):
@@ -14,9 +17,17 @@ def null_sentinel(obj, sentinel):
     else:
         return obj
 
+class ProgressBar(ChargingBar):
+    suffix = '%(percent).1f%% - %(remaining_minutes).1fm'
+    @property
+    def remaining_minutes(self):
+        return self.eta / 60
 
 # Create your models here.
 class Item(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
     id = models.IntegerField(primary_key=True)
     item_id = models.IntegerField()
     name = models.CharField(max_length=200)
@@ -124,9 +135,24 @@ class Item(models.Model):
             % str(datetime.timedelta(seconds=(time.time() - start_time)))
         )
 
+    @classmethod
+    def set_all_data_points(cls):
+        start_time = time.time()
+        
+        with ProgressBar('Getting data points', max=cls.objects.all().count()) as bar:
+            for item in cls.objects.all():
+                item.set_data_point()
+                os.system('cls||clear')
+                bar.next()
+        print("\nFinished updating all items.")
+        print(
+            "|  Execution time (real time): %s"
+            % str(datetime.timedelta(seconds=(time.time() - start_time)))
+        )
+
     def update_item_info(self):
         api_url = URLS["OSBOX"]
-        endpoint = "%(url)s%(endpoint)s" % {"url": api_url, "endpoint": "items"}
+        endpoint = f"{api_url}items"
         # fmt: off
         payload = "{\n\t\"name\":\"" + self.name + "\"\n}"
         response = requests.get(endpoint, params={"where": payload},)
@@ -151,3 +177,47 @@ class Item(models.Model):
                 % (self.name, response.status_code, response.url),
                 file=sys.stderr,
             )
+    
+    def set_data_point(self):
+        endpoint = '%sitem/%d.json' % (URLS["OSBGOOGLE"], self.item_id)
+        response = requests.get(endpoint)
+        if response.ok:
+            try:
+                data = response.json()
+                d = DataPoint(
+                    item = self,
+                    buy_average = data["buy_average"],
+                    buy_quantity = data["buy_quantity"],
+                    overall_average = data["overall_average"],
+                    overall_quantity = data["overall_quantity"],
+                    sell_average = data["sell_average"],
+                    sell_quantity = data["sell_quantity"],
+                    store_price = data["sp"],
+                )
+
+            except json.decoder.JSONDecodeError:
+                print("ERROR: DataPoint Request for %s (%d) resulted in invalid JSON." % (self.name, self.id), file=sys.stderr,)
+    
+        else:
+            print("ERROR: Could not fetch page for %s. URL: %s" % (self.name, response.url), file=sys.stderr)
+    
+    def getSlug(self):
+        return self.name.replace(' ', '_').lower()
+
+class DataPoint(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    buy_average = models.IntegerField()
+    buy_quantity = models.IntegerField()
+    overall_average = models.IntegerField()
+    overall_quantity = models.IntegerField()
+    sell_average = models.IntegerField()
+    sell_quantity = models.IntegerField()
+    store_price = models.IntegerField()
+
+    def __str__(self):
+        return "<DataPoint:\"" + self.item.name + "\">"
+    
+

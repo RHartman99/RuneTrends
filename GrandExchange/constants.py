@@ -31,4 +31,7 @@ ALPHABET = [
 URLS = {
     "GE": "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/",
     "OSBOX": "https://api.osrsbox.com/",
+    "OSBUDDY": "https://rsbuddy.com/exchange/",
+    "OSBGOOGLE": "https://storage.googleapis.com/osb-exchange/",
+    "CLOUDINARY": "https://res.cloudinary.com/rhartman99/image/fetch/",
 }

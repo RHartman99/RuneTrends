@@ -1,0 +1,53 @@
+<ul class="info__info">
+	<li>
+		<p>
+			<strong>ID:</strong>
+			{{ item.item_id }}</p>
+	</li>
+	<li>
+		<p>
+			<strong>Price:</strong>
+			{{ item.price }}</p>
+	</li>
+	<li>
+		<p>
+			<strong>Description:</strong>
+			{{ item.description }}</p>
+	</li>
+	<li>
+		<p>
+			<strong>Low Alch:</strong>
+			{{ item.low_alch }}
+		</p>
+	</li>
+	<li>
+		<p>
+			<strong>High Alch:</strong>
+			{{ item.high_alch }}
+		</p>
+	</li>
+	{% if item.release_date|length > 0 %}
+		<li>
+			<p>
+				<strong>Release Date:</strong>
+				{{ release_date  }}
+			</p>
+		</li>
+	{% endif %}
+	{% if item.wiki_url|length > 0 %}
+		<li>
+			<p>
+				<strong>Wiki URL:</strong>
+				<a href="{{ item.wiki_url }}" target="_blank">{{ item.wiki_url }}</a>
+			</p>
+		</li>
+	{% endif %}
+	{% if item.wiki_exchange|length > 0 %}
+		<li>
+			<p>
+				<strong>Wiki Exhange URL:</strong>
+				<a href="{{ item.wiki_exchange }}" target="_blank">{{ item.wiki_exchange }}</a>
+			</p>
+		</li>
+	{% endif %}
+</ul>

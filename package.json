@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run watch",
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
@@ -22,9 +23,12 @@
   },
   "homepage": "https://github.com/RHartman99/RuneTrends#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.10",
     "browser-sync-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "laravel-mix": "^5.0.4",
     "postcss-sass": "^0.4.4",
     "precss": "^4.0.0",
@@ -34,7 +38,15 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "glob": "^7.1.6",
+    "js-cookie": "^2.2.1",
     "postcss-easy-import": "^3.0.0",
-    "tailwindcss": "^1.4.6"
+    "postcss-import": "^12.0.1",
+    "stimulus": "^1.1.1",
+    "tailwindcss": "^1.4.6",
+    "vanilla-lazyload": "^17.1.0"
   }
 }

@@ -1,0 +1,8 @@
+{% load static %}
+<section class="hero">
+	<img class="hero__bg" alt="Wilderness battle" src="{% static 'images/hero.jpg' %}"/>
+	<div class="hero__content">
+		<p class="hero__content--title">{{ page_title }}</p>
+		<h1>{{ subtitle }}<img class="icon" alt="Icon" src="{{ icon }}"/></h1>
+	</div>
+</section>

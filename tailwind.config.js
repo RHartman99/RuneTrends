@@ -4,10 +4,11 @@ module.exports = {
     extend: {
       fontFamily: {
         mont: ["Montserrat", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       colors: {
+        eggshell: "#e5e5e5",
         bg: {
-          gray: "#e5e5e5",
           blue: "#0c2f3c",
         },
         blue: {
