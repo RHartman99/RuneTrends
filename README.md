@@ -36,11 +36,13 @@ $ npm i
 $ pip install -r ./requirements-dev.txt
 ```
 
-Start development server:
+Start Django development server:
 
 ```console
 $ python ./manage.py runserver
 ```
+
+For more information on using Django, refer to their [documentation](https://www.djangoproject.com/start/).
 
 For BrowserSync and other WebPack benefits, run in a **seperate terminal**:
 
