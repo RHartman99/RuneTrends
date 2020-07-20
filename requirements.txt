@@ -3,6 +3,7 @@ Django
 django-fontawesome-5
 djangomix
 django-dotenv
+tqdm
 
 # Production only:
 gunicorn

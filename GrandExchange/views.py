@@ -15,8 +15,6 @@ def item(request, name):
     item = Item.objects.filter(name__iexact=name).first()
     context = {"item": item, "cloudinary": URLS["CLOUDINARY"]}
     if item.release_date != "":
-        context["release_date"] = datetime.strptime(
-            item.release_date, "%Y-%m-%d"
-        ).strftime("%b %e, %Y")
+        context["release_date"] = item.release_date.strftime("%b %e, %Y")
     return render(request, "item.html", context)
 

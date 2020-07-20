@@ -3,3 +3,4 @@ Django
 django-fontawesome-5
 djangomix
 python-dotenv
+tqdm
