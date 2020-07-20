@@ -53,7 +53,8 @@ $ npm start
 By default, BrowserSync will proxy `localhost:8000`. If this does not suite your needs, edit `webpack.mix.js` in the project's root folder:
 
 ```javascript
-mix.browserSync({
+...
+.browserSync({
   ui: false,
   injectChanges: true,
   files: files,
@@ -61,6 +62,7 @@ mix.browserSync({
   watch: true,
   logChanges: false,
 });
+...
 ```
 
 ## Other NPM scripts
