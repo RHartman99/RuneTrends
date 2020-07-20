@@ -69,3 +69,28 @@ By default, BrowserSync will proxy `localhost:8000`. If this does not suite your
 
 - `watch` - Watches files and starts BrowserSync proxying
 - `dev` - Runs WebPack once, copying all CSS/JS/Images to the appropriate static folders
+
+## Populating Database
+
+When first launching the app, there will be no item data collected. To have any meaningful data, populate the database by running several model class methods.
+
+Start Django shell:
+
+```shell
+$ python ./manage.py shell
+
+Python 3.x.x (...)
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>>
+```
+
+In the interactive console, run item data collection methods:
+
+```shell
+>>> from GrandExchange.models import Item
+>>> Item.get_all_items()
+>>> Item.set_all_data_points()
+```
+
+Both methods will take time to execute, as they make many requests to APIs that have slow response times. They can take anywhere from 10 to 30 minutes, depending on API loads.

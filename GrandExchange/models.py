@@ -19,7 +19,6 @@ def null_sentinel(obj, sentinel):
     obj : object
         The object to be evaluated
     sentinel : any
-        
     """
     if obj is None:
         return sentinel
@@ -29,6 +28,65 @@ def null_sentinel(obj, sentinel):
 
 # Create your models here.
 class Item(models.Model):
+    """A model class to represent an Item
+    
+    Attributes
+    ----------
+    id : IntegerField
+        The auto incremented ID, not to be confused with item_id
+    item_id : IntegerField
+        The OSRS item ID
+    name : CharField
+        The name as it appears ingame
+    price : CharField
+        The price as reported by GrandExchange API (e.g: 12k, 12.1m)
+    type : CharField
+        The item's type (all OSRS items types are 'Default')
+    icon : URLField
+        The item's small sprite icon's URL
+    icon_large : URLField
+        The item's large 3D icon's URL
+    description : CharField
+        The description text gotten when inspecting the item
+    members : BooleanField
+        Whether or not the item is members only
+    low_alch : IntegerField
+        The value of performing low alchemy on the item
+    high_alch : IntegerField
+        The value of performing high alchemy on the item
+    weight : IntegerField
+        The weight of the item
+    buy_limit : IntegerField
+        The amount an item can be bought per 4 hours
+    quest_item : BooleanField
+        Whether or not the item is a quest item (almost always False)
+    release_date : DateField
+        The release date of the item in a DateTime object
+    wiki_name : CharField
+        The name as it appears on the OSRS wiki
+    wiki_url : URLField
+        The URL to the item's OSRS wiki page
+    wiki_exchange : URLField
+        The URL to the item's OSRS wiki exchange page
+    
+    Class Methods
+    ----------
+    get_all_items()
+        Adds all items to the database
+    
+    update_all_items_info()
+        Updates all item info to include more diverse information
+    
+    set_all_data_points()
+        Creates data point model instances for every item
+    
+    Instance Methods
+    ----------
+    update_item_info()
+        Updates item's fields to include more diverse information
+    set_data_point()
+        Creates data point model instances for current item
+    """
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
