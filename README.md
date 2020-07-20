@@ -1,6 +1,6 @@
 # RuneTrends
 
-<img src="https://github.com/RHartman99/RuneTrends/blob/master/src/images/RuneTrends_Light.png?raw=true" align="right"
+<img src="https://github.com/RHartman99/RuneTrends/blob/master/src/images/RuneTrends_Dark.png?raw=true" align="right"
      alt="Size Limit logo by Anton Lovchikov" width="200">
 RuneTrends is an [OldSchool Runescape](https://oldschool.runescape.com/) market analysis web application. It records market data and monitors trend data to offer investment predictions, allowing easier and safer item flipping.
 
